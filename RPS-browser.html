@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Play Rock, Paper, Scissors against a computer!</title>
+
+</head>
+<body>
+	<div class="container"></div>
+	<div class="buttons">
+		<button type="button" class="rock">Rock</button>
+		<button type="button" class="paper">Paper</button>
+		<button type="button" class="scissors">Scissors</button>
+	</div>
+
+</body>
+<script type="text/javascript">
+	function computerPlay(){
+		let randomMove = Math.floor(Math.random()*100);
+		moveSelect = (randomMove <= 33) ? "rock":(randomMove >= 34 && randomMove <= 65) ? "paper": "scissors";
+		return moveSelect;
+	}
+
+	function playRound(computerSelection, playerSelection){
+		const computerSelection=computerPlay();
+		playerSelection = playerSelection.toLowerCase();
+		switch(true) {
+			case (computerSelection=="rock"):
+			    outcome = (playerSelection=="paper") ? "Paper covers Rock. Player wins!": (playerSelection=="scissors") ? "Rock smashes Scissors. Computer wins!" : "Tie game"
+			    return outcome;
+			    break;
+			case (computerSelection=="paper"):
+			    outcome = (playerSelection=="rock") ? "Paper covers Rock. Computer wins!": (playerSelection=="scissors") ? "Scissors cut Paper. Player wins!" : "Tie game"
+			    return outcome;
+			    break;
+			case (computerSelection=="scissors"):
+			    outcome = (playerSelection=="paper") ? "Scissors cut Paper. Computer wins!": (playerSelection=="rock") ? "Rock smashes Scissors. Player wins!" : "Tie game"
+			    return outcome;
+			    break;
+			default:
+			   outcome = "An unknown error has occured."
+			   return outcome;
+		}
+	}
+	function game(userPrompt = ""){
+		computerWins = 0;
+		playerWins = 0;
+		while (computerWins < 5 || playerWins < 5){
+	        userPrompt = Window.prompt("Lets play Rock, Paper, Scissors. Input your move.")
+		    playRound(computerSelection, userPrompt)
+		    if (outcome.includes("Computer Win")){
+			    computerWins++
+			    if (computerWins=5){
+			    	return "Computer wins the game!"
+			    	break
+			    }
+		    }
+		    if (outcome.includes("Player Wins")){
+			    playerWins++
+			    if (playerWins=5){
+			    	return "Player wins the game!"
+			    	break
+			    }
+		}
+		}
+}
+</script>
