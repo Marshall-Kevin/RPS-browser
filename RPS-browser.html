@@ -5,48 +5,50 @@
 
 </head>
 <body>
+	<h2>Lets play Rock, Paper, Scissors!</h2>
 	<div class="container"></div>
 	<div class="buttons">
-		<button type="button" class="rock">Rock</button>
-		<button type="button" class="paper">Paper</button>
-		<button type="button" class="scissors">Scissors</button>
+		<button type="button" id="rock">Rock</button>
+		<button type="button" id="paper">Paper</button>
+		<button type="button" id="scissors">Scissors</button>
 	</div>
 
 </body>
 <script type="text/javascript">
-	const rockButton = document.getElementsByClassName("rock") 
-	rockButton[0].addEventListener("click", playRound();
+	const rockButton = document.getElementById("rock");
+	rockButton.addEventListener("click", function () { playRound("rock")});
 
-	const paperButton = document.getElementsByClassName("paper");
-	paperButton[0].addEventListener("click", playRound());
-	
-	const scissorsButton = document.getElementsByClassName("scissors");
-	scissorsButton[0].addEventListener("click", playRound());
+	const paperButton = document.getElementById("paper");
+	paperButton.addEventListener("click", function () { playRound("paper")});
+
+	const scissorsButton = document.getElementById("scissors");
+	scissorsButton.addEventListener("click", function () { playRound("scissors")});
 
 	function computerPlay(){
-		let randomMove = Math.floor(Math.random()*100);
-		moveSelect = (randomMove <= 33) ? "rock":(randomMove >= 34 && randomMove <= 65) ? "paper": "scissors";
-		return moveSelect;
+		const randomMove = Math.floor(Math.random()*100);
+		computerSelection = (randomMove <= 33) ? "rock":(randomMove >= 34 && randomMove <= 65) ? "paper": "scissors";
+		return computerSelection;
 	}
 
-	function playRound(computerSelection, playerSelection){
-		playerSelection = playerSelection.toLowerCase();
+	function playRound(playerSelection){
+		computerSelection = computerPlay()
+		
 		switch(true) {
 			case (computerSelection=="rock"):
 			    outcome = (playerSelection=="paper") ? "Paper covers Rock. Player wins!": (playerSelection=="scissors") ? "Rock smashes Scissors. Computer wins!" : "Tie game"
-			    return outcome;
+			    return console.log(outcome);
 			    break;
 			case (computerSelection=="paper"):
 			    outcome = (playerSelection=="rock") ? "Paper covers Rock. Computer wins!": (playerSelection=="scissors") ? "Scissors cut Paper. Player wins!" : "Tie game"
-			    return outcome;
+			    return console.log(outcome);
 			    break;
 			case (computerSelection=="scissors"):
 			    outcome = (playerSelection=="paper") ? "Scissors cut Paper. Computer wins!": (playerSelection=="rock") ? "Rock smashes Scissors. Player wins!" : "Tie game"
-			    return outcome;
+			    return console.log(outcome);
 			    break;
 			default:
 			   outcome = "An unknown error has occured."
-			   return outcome;
+			   return console.log(outcome);
 		}
 	}
 	function game(userPrompt = ""){
