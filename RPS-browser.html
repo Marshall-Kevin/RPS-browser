@@ -47,39 +47,45 @@
 		switch(true) {
 			case (computerSelection=="rock"):
 			    outcome = (playerSelection=="paper") ? "Paper covers Rock. Player wins!": (playerSelection=="scissors") ? "Rock smashes Scissors. Computer wins!" : "Tie game"
-			    return game(outcome);
+			    game(outcome);
+			    return console.log(outcome);
 			case (computerSelection=="paper"):
 			    outcome = (playerSelection=="rock") ? "Paper covers Rock. Computer wins!": (playerSelection=="scissors") ? "Scissors cut Paper. Player wins!" : "Tie game"
-			    return game(outcome);
+			    game(outcome);
+			    return console.log(outcome);
 			case (computerSelection=="scissors"):
 			    outcome = (playerSelection=="paper") ? "Scissors cut Paper. Computer wins!": (playerSelection=="rock") ? "Rock smashes Scissors. Player wins!" : "Tie game"
-			    return game(outcome);
+			    game(outcome);
+			    return console.log(outcome);
 			default:
 			   outcome = "An unknown error has occured."
 			   return;
 		}
 	}
 	function game(outcome){
-		if (computerWins < 5 || playerWins < 5){
-		    if (outcome.includes("Computer Win")){
-			    computerWins++
-			    document.getElementById(computer-score).innerText("Computer Wins: " + computerWins)
-			    if (computerWins=5){
-			    	playerWins = 0
-			    	computerWins = 0
-			    	return alert("Computer wins the game!")
+		if (outcome.includes("Computer win")){
 
-			    }
-		    }
-		    if (outcome.includes("Player Wins")){
-			    playerWins++
-			    document.getElementById(player-score).innerText("Player Wins: " + playerWins)
-			    if (playerWins=5){
-			    	playerWins = 0
-			    	computerWins = 0
-			    	return alert("Player wins the game!")
-			    }
+		    computerWins++;
+			document.getElementById("computer-score").innerText = "Computer Wins: " + computerWins;
+			if (computerWins==5){
+			    playerWins = 0;
+			    computerWins = 0;
+			    document.getElementById("computer-score").innerText = "Computer Wins: " + computerWins;
+			    document.getElementById("player-score").innerText = "Player Wins: " + playerWins;
+			    return alert("Computer wins the game!");
+
+			}
 		}
-		}
+		if (outcome.includes("Player wins")){
+			playerWins++;
+			document.getElementById("player-score").innerText = "Player Wins: " + playerWins;
+			if (playerWins==5){
+			    playerWins = 0;
+			    computerWins = 0;
+			    document.getElementById("player-score").innerText = "Player Wins: " + playerWins;
+			    document.getElementById("computer-score").innerText = "Computer Wins: " + computerWins;
+			    return alert("Player wins the game!")
+			}
+	}
 }
 </script>
