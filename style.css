@@ -4,5 +4,45 @@ body {
 
 h2 {
 	text-align: center;
-	font-weight: "Arial", sans-serif;
+	font-family: "Arial", sans-serif;
+}
+
+div {
+	font-family: "Arial", sans-serif;
+}
+
+button {
+	border: none;
+	border-radius: 8px;
+	height: auto;
+	width: auto;
+	background-color: #999999;
+	color: white;
+	font-weight: bold;
+	font-size: 1.5em;
+	margin-top: 40px;
+
+
+}
+
+.buttons {
+	text-align: center;
+}
+
+img {
+	width: auto;
+	height: 100px;
+}
+button:hover {
+	transition-duration: 0.2s;
+	-webkit-transition-duration: 0.2s;
+	-ms-transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.2, 1.2); 
+    transform: scale(1.2, 1.2);
+}
+}
+div #computer-score, div #player-score {
+	display: inline;
+	margin-top: 50px;
+	margin-bottom: 10px;
 }

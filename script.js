@@ -25,17 +25,21 @@ function playRound(playerSelection){
 		case (computerSelection=="rock"):
 		    outcome = (playerSelection=="paper") ? "Paper covers Rock. Player wins!": (playerSelection=="scissors") ? "Rock smashes Scissors. Computer wins!" : "Tie game"
 		    game(outcome);
+		    document.getElementById("outcome").innerText = outcome;
 		    return console.log(outcome);
 		case (computerSelection=="paper"):
 		    outcome = (playerSelection=="rock") ? "Paper covers Rock. Computer wins!": (playerSelection=="scissors") ? "Scissors cut Paper. Player wins!" : "Tie game"
 		    game(outcome);
+		    document.getElementById("outcome").innerText = outcome;
 		    return console.log(outcome);
 		case (computerSelection=="scissors"):
 		    outcome = (playerSelection=="paper") ? "Scissors cut Paper. Computer wins!": (playerSelection=="rock") ? "Rock smashes Scissors. Player wins!" : "Tie game"
 		    game(outcome);
+		    document.getElementById("outcome").innerText = outcome;
 		    return console.log(outcome);
 		default:
 		   outcome = "An unknown error has occured."
+		   document.getElementById("outcome").innerText = outcome;
 		   return;
 	}
 }
@@ -63,5 +67,6 @@ function gameEnd() {
     computerWins = 0;
     document.getElementById("player-score").innerText = "Player Wins: " + playerWins;
     document.getElementById("computer-score").innerText = "Computer Wins: " + computerWins;
+    document.getElementById("outcome").innerText = "Play again?";
 }
 }
