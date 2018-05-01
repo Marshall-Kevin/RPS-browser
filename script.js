@@ -24,18 +24,18 @@ function playRound(playerSelection){
 	switch(true) {
 		case (computerSelection=="rock"):
 		    outcome = (playerSelection=="paper") ? "Paper covers Rock. Player wins!": (playerSelection=="scissors") ? "Rock smashes Scissors. Computer wins!" : "Tie game"
-		    game(outcome);
 		    document.getElementById("outcome").innerText = outcome;
+		    game(outcome);
 		    return console.log(outcome);
 		case (computerSelection=="paper"):
 		    outcome = (playerSelection=="rock") ? "Paper covers Rock. Computer wins!": (playerSelection=="scissors") ? "Scissors cut Paper. Player wins!" : "Tie game"
-		    game(outcome);
 		    document.getElementById("outcome").innerText = outcome;
+		    game(outcome);
 		    return console.log(outcome);
 		case (computerSelection=="scissors"):
 		    outcome = (playerSelection=="paper") ? "Scissors cut Paper. Computer wins!": (playerSelection=="rock") ? "Rock smashes Scissors. Player wins!" : "Tie game"
-		    game(outcome);
 		    document.getElementById("outcome").innerText = outcome;
+		    game(outcome);
 		    return console.log(outcome);
 		default:
 		   outcome = "An unknown error has occured."
@@ -65,8 +65,9 @@ function game(outcome){
 function gameEnd() {
 	playerWins = 0;
     computerWins = 0;
+    outcome = "Play again?";
     document.getElementById("player-score").innerText = "Player Wins: " + playerWins;
     document.getElementById("computer-score").innerText = "Computer Wins: " + computerWins;
-    document.getElementById("outcome").innerText = "Play again?";
+    document.getElementById("outcome").innerText = outcome;
 }
 }
